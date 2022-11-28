@@ -1,0 +1,36 @@
+import random
+
+def crearM(N,M):
+  A=[]
+  for f in range(1, N+1):
+    VF=[]
+    for c in range(1, M+1):
+      num=random.randint(0,20)
+      VF.append(num)
+    A.append(VF)
+  return A
+
+def imprimirM(matriz):
+  for f in range(0, len(matriz)):
+    for c in range(0, len(matriz[f])):
+      print(matriz[f][c], end="\t")
+    print()
+
+####################
+tamF=10
+tamC=5
+B=crearM(tamF, tamC)
+imprimirM(B)
+
+##########################################
+#L1 sumas acumuladas por las notas de cada estudiante
+L1=[]
+#L2 sera la cantidad de examenes resuelto por cada estudiante
+L2=[]
+
+for f in range(len(B)):
+  totalHE=sum(B[f])/len(B)
+  L1.append(totalHE)
+print("Los promedios de cada alumno")
+for z in range(len(L1)):
+  print("el promedio del alumno", z+1, "es", L1[z])
